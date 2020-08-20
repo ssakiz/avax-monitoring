@@ -38,7 +38,7 @@ cd gecko-0.5.7
 ```bash
 
 # get SERVER IP
-SERVER_IP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
+SERVER_IP=$(/sbin/ifconfig eth0 | grep 'inet' | cut -d: -f2 | awk '{ print $1}')
 
 # prometheus yml create
 cat << 'EOF' > /tmp/prometheus.yml
@@ -59,7 +59,7 @@ scrape_configs:
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
     static_configs:
-    - targets: ['locahost:9090']
+    - targets: ['localhost:9090']
   - job_name: 'avax-node'
     metrics_path: '/ext/metrics'
     scrape_interval: 5s
