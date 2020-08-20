@@ -2,12 +2,20 @@
 avax-monitoring
 
 
-
 ## Preparing the environment
 
 ### Install Docker (if not already installed)
 ```bash
 # Install Docker on ubuntu
+sudo apt-get install curl apt-transport-https ca-certificates software-properties-common -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+sudo apt update
+apt-cache policy docker-ce
+sudo apt install docker-ce
+sudo systemctl enable docker
+sudo systemctl status docker
+sudo usermod -aG docker $(whoami)
 
 ```
 
@@ -41,19 +49,19 @@ scrape_configs:
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
     static_configs:
-    - targets: ['192.168.100.100:9090']
+    - targets: ['localhost:9090']
   - job_name: 'avax-node'
     metrics_path: '/ext/metrics'
     scrape_interval: 5s
     static_configs:
-    - targets: ['192.168.100.100:9650']
+    - targets: ['localhost:9650']
       labels:
         group: 'ava'
   # Scrape the Node Exporter every 5 seconds.
   - job_name: 'node'
     scrape_interval: 5s
     static_configs:
-    - targets: ['192.168.100.100:9100']
+    - targets: ['localhost:9100']
 EOF
 ```
 
