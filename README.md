@@ -97,5 +97,5 @@ docker run -d -p 3000:3000 --name=grafana -v grafana-storage:/var/lib/grafana gr
 
 ## Step 5 - Happy monitoring
 
-![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-import-dashboard-5.jpg)
+![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-import-dashboard-6.jpg)
 
