@@ -16,11 +16,18 @@ sudo apt install docker-ce
 sudo systemctl enable docker
 sudo systemctl status docker
 sudo usermod -aG docker $(whoami)
-
 ```
 
 ### Start Avax Node (if not already started)
 ```bash
+
+# Install Avax Node on ubuntu ( ATTENTION : install ava if not already installed !!! )
+cd ~
+sudo apt-get install wget curl -y
+wget https://github.com/ava-labs/gecko/releases/download/v0.5.7/gecko-linux-0.5.7.tar.gz
+tar xvfz gecko-linux-0.5.7.tar.gz
+cd gecko-linux-0.5.7
+
 # Start Avax Node on ubuntu
 ./ava --http-host=0.0.0.0
 
