@@ -80,6 +80,5 @@ docker run -d -p 3000:3000 --name=grafana -v grafana-storage:/var/lib/grafana gr
 
 
 ## Step 4 - Import Grafana Dashboard
-   ``
-   ![image text](https://github.com/ssakiz/avax-monitoring/grafana-import-dashboard-1.jpg)
-   ``
+![alt text](https://github.com/ssakiz/avax-monitoring/grafana-import-dashboard-1.jpg)
+
