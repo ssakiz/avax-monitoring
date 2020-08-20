@@ -99,7 +99,7 @@ docker run -d -p 3000:3000 --name=grafana -v grafana-storage:/var/lib/grafana gr
 
 ### Login Grafana with default user/passwd and change it ( admin / admin )
 
-http://< PUBLIC-NODE-IP >:3000
+http://PUBLIC-NODE-IP:3000
 
 
 ### Import the following grafana dashboard JSON 
