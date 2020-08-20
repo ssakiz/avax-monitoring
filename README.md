@@ -131,6 +131,7 @@ https://raw.githubusercontent.com/ssakiz/avax-monitoring/master/grafana-dashboar
 ##### -  Type your bots name. F.e: Grafana Bot
 ##### -  Type your bots username. F.e: a_new_grafana_bot
 ##### -  You have your Bot API Token. Paste it on Grafana.
+##### -  Telegram -> new message -> search -> Type your bots name -> select your bots name -> Start ( Chat started )
 ##### -  Open this URL address, substituing YOUR_API_TOKEN_KEY with yours: https://api.telegram.org/botYOUR_API_TOKEN_KEY/getUpdates
 The response may look like this: {"ok":true,"result":[{"update_id":BLA_BLA_BLA", chat":{"id":[CHAT_ID],"title". 
 ##### -  Copy that CHAT_ID, even with the minus sign.
