@@ -14,7 +14,7 @@ avax-monitoring
 ### Start Avax Node (if not already started)
 ```bash
 # Start Avax Node on ubuntu
-./ava
+./ava --http-host=0.0.0.0
 
 ```
 
@@ -81,9 +81,10 @@ docker run -d -p 3000:3000 --name=grafana -v grafana-storage:/var/lib/grafana gr
 
 ## Step 4 - Import Grafana Dashboard
 
-# Import the following grafana dashboard JSON 
+### Import the following grafana dashboard JSON 
+```bash
 "https://raw.githubusercontent.com/ssakiz/avax-monitoring/master/grafana-dashboard/ava-node-dashboard-1597935940166.json"
-
+```bash
 
 ![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-import-dashboard-1.jpg)
 
@@ -94,4 +95,6 @@ docker run -d -p 3000:3000 --name=grafana -v grafana-storage:/var/lib/grafana gr
 ![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-import-dashboard-4.jpg)
 
 
-https://raw.githubusercontent.com/ssakiz/avax-monitoring/master/grafana-dashboard/ava-node-dashboard-1597935940166.json
+## Step 5 - Happy monitoring
+
+![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-import-dashboard-5.jpg)
