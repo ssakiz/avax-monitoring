@@ -113,8 +113,11 @@ http://PUBLIC-NODE-IP:80
 
 
 Configuration -> Data Sources --> Add datasource --> Select Prometheus ->
+
 Name --> DS_PROMETHEUS
+
 URL --> http://SERVER_IP:9090
+
 Access --> Server
 
 ![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-datasource.jpg)
