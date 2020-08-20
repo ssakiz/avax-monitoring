@@ -7,12 +7,12 @@ avax-monitoring
 ### Install Docker (if not already installed)
 ```bash
 # Install Docker on ubuntu
-sudo apt-get install curl apt-transport-https ca-certificates software-properties-common -y
+sudo apt-get install wget curl apt-transport-https ca-certificates software-properties-common -y
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 sudo apt update
 apt-cache policy docker-ce
-sudo apt install docker-ce
+sudo apt install docker-ce -y 
 sudo systemctl enable docker
 sudo systemctl status docker
 sudo usermod -aG docker $(whoami)
@@ -23,7 +23,6 @@ sudo usermod -aG docker $(whoami)
 
 # Install Avax Node on ubuntu ( ATTENTION : install ava if not already installed !!! )
 cd ~
-sudo apt-get install wget curl -y
 wget https://github.com/ava-labs/gecko/releases/download/v0.5.7/gecko-linux-0.5.7.tar.gz
 tar xvfz gecko-linux-0.5.7.tar.gz
 cd gecko-linux-0.5.7
