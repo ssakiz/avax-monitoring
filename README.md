@@ -36,6 +36,10 @@ cd gecko-0.5.7
 
 ## Step 1 - Create prometheus config file 
 ```bash
+
+# get SERVER IP
+SERVER_IP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2 | awk '{ print $1}')
+
 # prometheus yml create
 cat << 'EOF' > /tmp/prometheus.yml
 # my global config
@@ -55,19 +59,19 @@ scrape_configs:
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
     static_configs:
-    - targets: ['localhost:9090']
+    - targets: ['${SERVER_IP}:9090']
   - job_name: 'avax-node'
     metrics_path: '/ext/metrics'
     scrape_interval: 5s
     static_configs:
-    - targets: ['localhost:9650']
+    - targets: ['${SERVER_IP}:9650']
       labels:
         group: 'ava'
   # Scrape the Node Exporter every 5 seconds.
   - job_name: 'node'
     scrape_interval: 5s
     static_configs:
-    - targets: ['localhost:9100']
+    - targets: ['${SERVER_IP}:9100']
 EOF
 ```
 
@@ -78,7 +82,7 @@ EOF
 docker volume create prometheus-storage
 
 # start prometheus 
-docker run -d --name=prometheus -p 9090:9090 -v prometheus-storage:/prometheus-data  -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
+docker run --rm -d --name=prometheus -p 9090:9090 -v prometheus-storage:/prometheus-data  -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
 
 ```
 
@@ -89,7 +93,7 @@ docker run -d --name=prometheus -p 9090:9090 -v prometheus-storage:/prometheus-d
 docker volume create grafana-storage
 
 # start grafana
-docker run -d -p 3000:3000 --name=grafana -v grafana-storage:/var/lib/grafana grafana/grafana
+docker run --rm -d -p 3000:3000 --name=grafana -v grafana-storage:/var/lib/grafana grafana/grafana
 ```
 
 
