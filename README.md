@@ -85,15 +85,7 @@ docker run -d -p 3000:3000 --name=grafana -v grafana-storage:/var/lib/grafana gr
 ```bash
 "https://raw.githubusercontent.com/ssakiz/avax-monitoring/master/grafana-dashboard/ava-node-dashboard-1597935940166.json"
 ```
-
-![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-import-dashboard-1.jpg)
-
-![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-import-dashboard-2.jpg)
-
-![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-import-dashboard-3.jpg)
-
-![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-import-dashboard-4.jpg)
-
+Dashboards --> Manage --> Import -> Upload JSON file 
 
 ## Step 5 - Happy monitoring
 
