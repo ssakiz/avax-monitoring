@@ -89,5 +89,28 @@ Dashboards --> Manage --> Import -> Upload JSON file
 
 ## Step 5 - Happy monitoring
 
-![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-import-dashboard-6.jpg)
+![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-import-dashboard.jpg)
 
+
+
+
+## Step 6 - Create alert for Telegram
+
+### Go to Grafana > Alerting > Notification channels > New channel.
+### Type: Telegram. It will ask you for a Bot API Token and a Chat ID.
+### Open a chat with BotFather on Telegram.
+### Type /newbot
+### Type your bots name. F.e: Grafana Bot
+### Type your bots username. F.e: a_new_grafana_bot
+### You have your Bot API Token. Paste it on Grafana.
+### Open this URL address, substituing YOUR_API_TOKEN_KEY with yours: https://api.telegram.org/botYOUR_API_TOKEN_KEY/getUpdates
+The response may look like this: {"ok":true,"result":[{"update_id":BLA_BLA_BLA", chat":{"id":[CHAT_ID],"title". 
+### Copy that CHAT_ID, even with the minus sign.
+### Paste it on Grafana.
+### Test it click on "Send Test". 
+You can test it using Telegram API too, just substitute parameters with your API Token and Chat ID: https://api.telegram.org/botYOUR_API_TOKEN/sendMessage?chat_id=YOUR_CHAT_ID&text=a_message
+
+
+![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-alert-channel.jpg)
+
+![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-alert-channel2.jpg)
