@@ -117,9 +117,9 @@ Name --> DS_PROMETHEUS
 URL --> http://SERVER_IP:9090
 Access --> Server
 
-![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-datasource.jpg.jpg)
+![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-datasource.jpg)
 
-![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-datasource2.jpg.jpg)
+![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-datasource2.jpg)
 
 
 
