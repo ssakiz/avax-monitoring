@@ -20,7 +20,7 @@ avax-monitoring
 
 
 
-# Step 1 - Create prometheus config file 
+## Step 1 - Create prometheus config file 
 ```bash
 # prometheus yml create
 cat << EOF > /tmp/prometheus.yml
@@ -58,7 +58,7 @@ EOF
 ```
 
 
-# Step 2 - Start Prometheus Docker Container
+## Step 2 - Start Prometheus Docker Container
 ```bash
 # create persistent volume
 docker volume create prometheus-storage
@@ -69,7 +69,7 @@ docker run -d --name=prometheus -p 9090:9090 -v prometheus-storage:/prometheus-d
 ```
 
 
-# Step 3 - Start Grafana Docker Container
+## Step 3 - Start Grafana Docker Container
 ```bash
 # create persistent volume
 docker volume create grafana-storage
@@ -79,7 +79,7 @@ docker run -d -p 3000:3000 --name=grafana -v grafana-storage:/var/lib/grafana gr
 ```
 
 
-# Step 4 - Import Grafana Dashboard
+## Step 4 - Import Grafana Dashboard
 
 <img src="https://github.com/ssakiz/avax-monitoring/grafana-import-dashboard-1.jpg"
      alt="Markdown Monster icon"
