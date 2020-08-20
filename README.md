@@ -25,7 +25,7 @@ sudo usermod -aG docker $(whoami)
 cd ~
 wget https://github.com/ava-labs/gecko/releases/download/v0.5.7/gecko-linux-0.5.7.tar.gz
 tar xvfz gecko-linux-0.5.7.tar.gz
-cd gecko-linux-0.5.7
+cd gecko-0.5.7
 
 # Start Avax Node on ubuntu
 ./ava --http-host=0.0.0.0
