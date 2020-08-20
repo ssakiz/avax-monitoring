@@ -102,10 +102,12 @@ http://PUBLIC-NODE-IP:3000
 
 
 ### Import the following grafana dashboard JSON 
-```bash
-"https://raw.githubusercontent.com/ssakiz/avax-monitoring/master/grafana-dashboard/ava-node-dashboard-1597935940166.json"
-```
+
 Dashboards --> Manage --> Import -> Upload JSON file 
+
+```bash
+https://raw.githubusercontent.com/ssakiz/avax-monitoring/master/grafana-dashboard/ava-node-dashboard-1597935940166.json
+```
 
 ## Step 5 - Happy monitoring
 
