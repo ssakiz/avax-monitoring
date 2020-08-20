@@ -59,20 +59,22 @@ scrape_configs:
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
     static_configs:
-    - targets: ['${SERVER_IP}:9090']
+    - targets: ['locahost:9090']
   - job_name: 'avax-node'
     metrics_path: '/ext/metrics'
     scrape_interval: 5s
     static_configs:
-    - targets: ['${SERVER_IP}:9650']
+    - targets: ['localhost:9650']
       labels:
         group: 'ava'
   # Scrape the Node Exporter every 5 seconds.
   - job_name: 'node'
     scrape_interval: 5s
     static_configs:
-    - targets: ['${SERVER_IP}:9100']
+    - targets: ['localhost:9100']
 EOF
+
+sed -i "s/localhost/${SERVER_IP}/g"  /tmp/prometheus.yml
 ```
 
 
