@@ -346,7 +346,7 @@
         "for": "2m",
         "frequency": "1m",
         "handler": 1,
-        "message": "Hi BURCUSAN,\n\nYour AVAX node is DOWN or NOT REACHABLE !!!\n\nPlease check your node.\n\nRegards,",
+        "message": "Hi,\n\nPlease check your node.\n\nRegards,",
         "name": "avax alert",
         "noDataState": "alerting",
         "notifications": [
