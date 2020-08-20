@@ -1,11 +1,5 @@
 
-# docker volume create grafana-storage
-docker run -d -p 3000:3000 --name=grafana -v grafana-storage:/var/lib/grafana grafana/grafana
-
-
-# docker volume create prometheus-storage
-docker run -d --name=prometheus -p 9090:9090 -v prometheus-storage:/prometheus-data  -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
-
+# STEP -1 : YML CREATE
 
 # prometheus yml create
 cat << EOF > /tmp/prometheus.yml
@@ -44,4 +38,11 @@ scrape_configs:
     static_configs:
     - targets: ['192.168.100.100:9100']
 EOF
+
+
+# STEP - 2: PROMETHEUS DOCKER RUN
+
+# docker volume create prometheus-storage
+docker run -d --name=prometheus -p 9090:9090 -v prometheus-storage:/prometheus-data  -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
+
 
