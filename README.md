@@ -145,6 +145,8 @@ You can test it using Telegram API too, just substitute parameters with your API
 ![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-alert-channel2.jpg)
 
 
+## Step 7 - Test alert for Telegram
+
 ##### -  Shutdown the ava node and see the coming alert message from telegram 
 ![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana_telegram_messages_not_ok.jpg)
 
