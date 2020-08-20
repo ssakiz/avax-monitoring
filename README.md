@@ -89,6 +89,12 @@ docker run -d -p 3000:3000 --name=grafana -v grafana-storage:/var/lib/grafana gr
 
 ## Step 4 - Import Grafana Dashboard
 
+
+### Login Grafana with default user/passwd and change it ( admin / admin )
+
+http://<PUBLIC-NODE-IP>:3000
+
+
 ### Import the following grafana dashboard JSON 
 ```bash
 "https://raw.githubusercontent.com/ssakiz/avax-monitoring/master/grafana-dashboard/ava-node-dashboard-1597935940166.json"
