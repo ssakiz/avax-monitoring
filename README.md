@@ -95,7 +95,7 @@ docker run --rm -d --name=prometheus -p 9090:9090 -v prometheus-storage:/prometh
 docker volume create grafana-storage
 
 # start grafana
-docker run --rm -d -p 3000:3000 --name=grafana -v grafana-storage:/var/lib/grafana grafana/grafana
+docker run --rm -d -p 80:3000 --name=grafana -v grafana-storage:/var/lib/grafana grafana/grafana
 ```
 
 
@@ -104,7 +104,23 @@ docker run --rm -d -p 3000:3000 --name=grafana -v grafana-storage:/var/lib/grafa
 
 ### Login Grafana with default user/passwd and change it ( admin / admin )
 
-http://PUBLIC-NODE-IP:3000
+NOT: If you are using firewall, you should permit port 80 access from outside.
+
+http://PUBLIC-NODE-IP:80
+
+### Create Data Source 
+
+
+
+Configuration -> Data Sources --> Add datasource --> Select Prometheus ->
+Name --> DS_PROMETHEUS
+URL --> http://SERVER_IP:9090
+Access --> Server
+
+![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-datasource.jpg.jpg)
+
+![alt text](https://github.com/ssakiz/avax-monitoring/raw/master/grafana-datasource2.jpg.jpg)
+
 
 
 ### Import the following grafana dashboard JSON 
