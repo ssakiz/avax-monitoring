@@ -38,7 +38,7 @@ cd gecko-0.5.7
 ```bash
 
 # get SERVER IP
-SERVER_IP=$(/sbin/ifconfig eth0 | grep 'inet' | cut -d: -f2 | awk '{ print $1}')
+SERVER_IP=$(/sbin/ifconfig eth0 | grep 'inet' | cut -d: -f2 | awk '{ print $2}')
 
 # prometheus yml create
 cat << 'EOF' > /tmp/prometheus.yml
