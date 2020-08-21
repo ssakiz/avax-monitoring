@@ -15,6 +15,7 @@ apt-cache policy docker-ce
 sudo apt install docker-ce -y 
 sudo systemctl enable docker
 sudo systemctl status docker
+# exit and login again
 sudo usermod -aG docker $(whoami)
 ```
 
