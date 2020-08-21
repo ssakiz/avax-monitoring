@@ -33,6 +33,10 @@ cd gecko-0.5.7
 ```
 
 
+## Step 1 - Start node-exporter
+
+docker run --rm -d -p 9100:9100 --net="host" prom/node-exporter
+
 
 ## Step 1 - Create prometheus config file 
 ```bash
