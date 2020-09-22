@@ -49,7 +49,11 @@ cd gecko-0.5.7
   343  docker rm 205fc3a616a9
   344  docker rm b9711bd6c29f
   348  docker ps
-  350  docker run --restart=always -d --name prometheus -p 9090:9090 -v prometheus-storage:/prometheus-data  -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
+  350  docker run --add-host="localhost:172.17.37.64" --restart=always -d --name prometheus -p 9090:9090 -v prometheus-storage:/prometheus-data  -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
+  
+  
+  
+  
   351  docker run --restart=always -d --name grafana -p 80:3000 -v grafana-storage:/var/lib/grafana grafana/grafana
   352  docker ps
   353  docker exec -it 6b7931276c25 bash
