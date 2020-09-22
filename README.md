@@ -33,10 +33,54 @@ cd gecko-0.5.7
 
 ```
 
+####
+  317  docker run --restart=always --rm -d --name=prometheus -p 9090:9090 -v prometheus-storage:/prometheus-data  -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
+  318  docker run --restart=always -d --name=prometheus -p 9090:9090 -v prometheus-storage:/prometheus-data  -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
+  319  docker volume create grafana-storage
+  320  docker run --restart=always -d -p 80:3000 --name=grafana -v grafana-storage:/var/lib/grafana grafana/grafana
+  329  docker run --restart=always -d -p 9100:9100 --net="host" prom/node-exporter
+  336  docker ps
+  337  docker stop 5796f3654250
+  338  docker rm 5796f3654250
+  339  docker run --restart=always -d --name node-exporter -p 9100:9100 --net="host" prom/node-exporter
+  340  docker ps
+  341  docker stop b9711bd6c29f
+  342  docker stop 205fc3a616a9
+  343  docker rm 205fc3a616a9
+  344  docker rm b9711bd6c29f
+  348  docker ps
+  350  docker run --restart=always -d --name prometheus -p 9090:9090 -v prometheus-storage:/prometheus-data  -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
+  351  docker run --restart=always -d --name grafana -p 80:3000 -v grafana-storage:/var/lib/grafana grafana/grafana
+  352  docker ps
+  353  docker exec -it 6b7931276c25 bash
+  354  docker network create myNetwork
+  355  docker network connect myNetwork grafana
+  356  docker network connect myNetwork prometheus
+  357  docker network connect myNetwork node-exporter
+  358  docker network inspect myNetwork
+  359  docker network ls
+  360  docker ps
+  361  docker rm f041d40626da
+  362  docker stop f041d40626da
+  363  docker rm f041d40626da
+  364  docker run --restart=always -d --name node-exporter -p 9100:9100  prom/node-exporter
+  365  docker ps
+  366  docker network connect myNetwork node-exporter
+  367  docker network inspect myNetwork
+  369  docker ps
+  373  docker pull prom/pushgateway
+  374  docker run -d  --restart=always -d --name pushgateway -p 9091:9091 prom/pushgateway
+  377  docker ps
+  378  docker network connect myNetwork pushgateway
+
+
+####
+
 
 ## Step 1 - Start node-exporter
 
-docker run --rm -d -p 9100:9100 --net="host" prom/node-exporter
+# docker run --restart=always -d --name node-exporter -p 9100:9100 --net="host" prom/node-exporter
+docker run --restart=always -d --name node-exporter -p 9100:9100  prom/node-exporter
 
 
 ## Step 1 - Create prometheus config file 
@@ -64,7 +108,7 @@ scrape_configs:
     # metrics_path defaults to '/metrics'
     # scheme defaults to 'http'.
     static_configs:
-    - targets: ['localhost:9090']
+    - targets: ['prometheus:9090']
   - job_name: 'avax-node'
     metrics_path: '/ext/metrics'
     scrape_interval: 5s
@@ -76,10 +120,14 @@ scrape_configs:
   - job_name: 'node'
     scrape_interval: 5s
     static_configs:
-    - targets: ['localhost:9100']
+    - targets: ['node-exporter:9100']
+  - job_name: 'pushgateway'
+    honor_labels: true
+    static_configs:
+    - targets: ['pushgateway:9091']
 EOF
 
-sed -i "s/localhost/${SERVER_IP}/g"  /tmp/prometheus.yml
+# sed -i "s/localhost/${SERVER_IP}/g"  /tmp/prometheus.yml
 ```
 
 
@@ -89,7 +137,7 @@ sed -i "s/localhost/${SERVER_IP}/g"  /tmp/prometheus.yml
 docker volume create prometheus-storage
 
 # start prometheus 
-docker run --rm -d --name=prometheus -p 9090:9090 -v prometheus-storage:/prometheus-data  -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
+docker run --restart=always -d --name prometheus -p 9090:9090 -v prometheus-storage:/prometheus-data  -v /tmp/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
 
 ```
 
@@ -100,7 +148,7 @@ docker run --rm -d --name=prometheus -p 9090:9090 -v prometheus-storage:/prometh
 docker volume create grafana-storage
 
 # start grafana
-docker run --rm -d -p 80:3000 --name=grafana -v grafana-storage:/var/lib/grafana grafana/grafana
+docker run --restart=always -d --name grafana -p 80:3000 -v grafana-storage:/var/lib/grafana grafana/grafana
 ```
 
 
